@@ -1,0 +1,303 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #6b8ab5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: "MS Sans Serif", Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+.window {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    width: 720px;
+    padding: 0;
+}
+
+.title-bar {
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 4px 8px;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+
+.content {
+    padding: 12px 16px 14px;
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    color: #000;
+    margin-bottom: 2px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+    background: #ffffff;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 11px;
+    font-family: inherit;
+    padding: 1px 3px;
+    color: #000;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: 1px dotted #000080;
+}
+
+.field-display {
+    background: #dfdfdf;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    font-size: 11px;
+    font-family: inherit;
+    padding: 1px 3px;
+    color: #000;
+    text-align: right;
+}
+
+.top-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: flex-start;
+}
+
+.factura-list-wrap {
+    flex: 1;
+}
+
+.factura-list-header {
+    display: grid;
+    grid-template-columns: 110px 160px 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+.factura-list-header span {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+#lista-facturas {
+    width: 100%;
+    height: 68px;
+    background: #fff;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 11px;
+    font-family: inherit;
+    resize: none;
+}
+
+.right-panel {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.right-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.right-row label {
+    margin: 0;
+    white-space: nowrap;
+    text-align: right;
+    min-width: 70px;
+}
+
+.right-row .field-display,
+.right-row input {
+    width: 100px;
+    text-align: right;
+}
+
+.mid-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+    align-items: flex-end;
+}
+
+.mid-row .field-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#num-factura {
+    width: 110px;
+}
+
+#cedula-nit-2 {
+    width: 130px;
+}
+
+#nro-recibo {
+    width: 110px;
+}
+
+.ret-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 6px;
+}
+
+.ret-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.ret-row label {
+    margin: 0;
+    text-align: right;
+    min-width: 80px;
+}
+
+.ret-row .field-display.small {
+    width: 70px;
+}
+
+.ret-row .field-display.tiny {
+    width: 36px;
+    text-align: right;
+}
+
+.bank-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 6px;
+}
+
+.bank-row .field-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#c-contable-banco {
+    width: 90px;
+}
+
+#nro-cheque {
+    width: 90px;
+}
+
+#cod-banco {
+    width: 80px;
+}
+
+.efectivo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#efectivo {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.concepto-row {
+    margin-bottom: 8px;
+}
+
+#concepto {
+    width: 380px;
+}
+
+.neto-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.neto-row label {
+    margin: 0;
+}
+
+.neto-row .field-display {
+    width: 100px;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 20px;
+}
+
+button {
+    min-width: 80px;
+    height: 26px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-size: 11px;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0 10px;
+    color: #000;
+}
+
+button:active {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 1px 9px 0 11px;
+}
+
+.two-col {
+    display: flex;
+    gap: 10px;
+}
+
+.left-col {
+    flex: 1;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #ffffff;
+    margin: 8px 0;
+}

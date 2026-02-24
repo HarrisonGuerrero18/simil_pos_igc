@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Pagos a Proveedores</title>
+	<link rel="stylesheet" href="../_css/styles-pos.css">
+</head>
+
+<body>
+	<div class="window">
+		<div class="title-bar" id="title-bar">PAGOS A PROVEEDORES</div>
+		<div class="content">
+
+			<!-- Lista de facturas y panel derecho -->
+			<div class="top-row">
+				<div class="factura-list-wrap">
+					<div class="factura-list-header">
+						<span id="lbl-factura">Factura</span>
+						<span id="lbl-cedula-nit">Cédula o N.i.t.</span>
+						<span id="lbl-valor">Valor</span>
+					</div>
+					<textarea id="lista-facturas" readonly></textarea>
+				</div>
+
+				<div class="right-panel">
+					<div class="right-row">
+						<label for="saldo" id="lbl-saldo">Saldo</label>
+						<input type="text" id="saldo" class="field-display" value="0.00" readonly />
+					</div>
+					<div class="right-row">
+						<label for="fecha" id="lbl-fecha">Fecha</label>
+						<input type="text" id="fecha" value="23/10/2024" style="width:100px;text-align:left;" />
+					</div>
+					<div class="right-row">
+						<label for="valor-pago" id="lbl-valor-pago">Valor pago</label>
+						<input type="text" id="valor-pago" value="0.00" style="width:100px;text-align:right;" />
+					</div>
+					<div class="right-row">
+						<label for="descuento" id="lbl-descuento">Descuento</label>
+						<input type="text" id="descuento" value="0.00" style="width:100px;text-align:right;" />
+					</div>
+				</div>
+			</div>
+
+			<div class="two-col">
+				<div class="left-col">
+					<div class="mid-row">
+						<div class="field-wrap">
+							<label for="num-factura" id="lbl-num-factura">Num. factura</label>
+							<input type="text" id="num-factura" />
+						</div>
+						<div class="field-wrap">
+							<label for="cedula-nit-2" id="lbl-cedula-nit-2">Cédula o N.i.t.</label>
+							<input type="text" id="cedula-nit-2" />
+						</div>
+						<div class="field-wrap">
+							<label for="nro-recibo" id="lbl-nro-recibo">Nro.recibo</label>
+							<input type="text" id="nro-recibo" />
+						</div>
+					</div>
+
+					<div class="mid-row" style="margin-top:-2px;">
+						<div class="field-wrap">
+							<input type="text" id="campo-extra-1" style="width:110px;" />
+						</div>
+						<div class="field-wrap">
+							<input type="text" id="campo-extra-2" style="width:240px;" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Retenciones -->
+				<div class="ret-section" style="width:220px; margin-top:0;">
+					<div class="ret-row">
+						<label for="r-fte-inv" id="lbl-r-fte-inv">R. Fte. Inv.</label>
+						<input type="text" id="r-fte-inv" class="field-display small" value="0.00" readonly />
+						<div class="field-display tiny" id="r-fte-inv-pct">0</div>
+					</div>
+					<div class="ret-row">
+						<label for="r-fte-serv" id="lbl-r-fte-serv">R. Fte. Serv.</label>
+						<input type="text" id="r-fte-serv" class="field-display small" value="0.00" readonly />
+						<div class="field-display tiny" id="r-fte-serv-pct">0</div>
+					</div>
+					<div class="ret-row">
+						<label for="r-fte-cree" id="lbl-r-fte-cree">R.Fte Cree</label>
+						<div class="field-display small" id="r-fte-cree">&nbsp;</div>
+						<div class="field-display tiny" id="r-fte-cree-pct">0</div>
+					</div>
+					<div class="ret-row">
+						<label for="reteica" id="lbl-reteica">Reteica</label>
+						<input type="text" id="reteica" class="field-display small" value="0.00" readonly />
+						<div class="field-display tiny" id="reteica-pct">0</div>
+					</div>
+					<div class="ret-row">
+						<label for="reteiva" id="lbl-reteiva">Reteiva</label>
+						<input type="text" id="reteiva" class="field-display small" value="0.00" readonly />
+						<div class="field-display tiny" id="reteiva-pct">0</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- BANK ROW -->
+			<div class="bank-row">
+				<div class="field-wrap">
+					<label for="c-contable-banco" id="lbl-c-contable-banco">C. contable banco</label>
+					<input type="text" id="c-contable-banco" value="110505" />
+				</div>
+				<div class="field-wrap">
+					<label for="nro-cheque" id="lbl-nro-cheque">Nro. cheque</label>
+					<input type="text" id="nro-cheque" />
+				</div>
+				<div class="field-wrap">
+					<label for="cod-banco" id="lbl-cod-banco">Cod. banco</label>
+					<input type="text" id="cod-banco" />
+				</div>
+				<div class="efectivo-wrap">
+					<label for="efectivo" id="lbl-efectivo">Efectivo</label>
+					<input type="checkbox" id="efectivo" />
+				</div>
+			</div>
+
+			<!-- CONCEPTO -->
+			<div class="concepto-row">
+				<label for="concepto" id="lbl-concepto">Concepto</label>
+				<input type="text" id="concepto" />
+			</div>
+
+			<!-- NETO PAGADO -->
+			<div class="neto-row">
+				<label for="neto-pagado" id="lbl-neto-pagado">Neto pagado</label>
+				<div class="field-display" id="neto-pagado" style="width:100px;">0.00</div>
+			</div>
+
+			<hr />
+
+			<!-- BUTTONS -->
+			<div class="btn-row">
+				<button id="btn-grabar" onclick="grabar()">Grabar</button>
+				<button id="btn-imprimir" onclick="imprimir()">Imprimir</button>
+				<button id="btn-retornar" onclick="retornar()">Retornar</button>
+				<button id="btn-salir" onclick="salir()">Salir</button>
+			</div>
+
+		</div>
+	</div>
+	<script src="../_js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(20, 20, 20, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 80px;
+}
+
+.nav-logo img {
+    height: 56px;
+    width: auto;
+    display: block;
+}
+
+.menu-root {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+}
+
+.menu-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.menu-link,
+.menu-title {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0 18px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    user-select: none;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+}
+
+.menu-item:hover > .menu-link,
+.menu-item:hover > .menu-title {
+    color: #f5a623;
+    border-top-color: #4a9e3f;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 230px;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    border-top: 3px solid #4a9e3f;
+}
+
+.menu-item:hover > .submenu {
+    display: block;
+}
+
+.submenu > li {
+    position: relative;
+    padding: 0;
+}
+
+.submenu > li > .submenu-link,
+.submenu > li > .submenu-title {
+    display: block;
+    padding: 11px 24px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.submenu > li > .submenu-link:hover,
+.submenu > li > .submenu-title:hover,
+.submenu > li.has-submenu:hover > .submenu-title {
+    color: #4a9e3f;
+    background: #f7f7f7;
+}
+
+.submenu > li.has-submenu:hover > .submenu-title {
+    border-left: 3px solid #4a9e3f;
+    padding-left: 21px;
+    font-weight: 600;
+    color: #4a9e3f;
+}
+
+.submenu > li.has-submenu > .submenu-title::after {
+    content: '›';
+    float: right;
+    font-size: 16px;
+    line-height: 1;
+    margin-left: 12px;
+    color: #999;
+    transition: color 0.15s;
+}
+
+.submenu > li.has-submenu:hover > .submenu-title::after {
+    color: #4a9e3f;
+}
+
+.submenu-nested {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: #ffffff;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 220px;
+    z-index: 1001;
+    box-shadow: 8px 8px 32px rgba(0, 0, 0, 0.14);
+    border-top: 3px solid #4a9e3f;
+    border-left: 1px solid #eee;
+}
+
+.submenu > li.has-submenu:hover > .submenu-nested {
+    display: block;
+}
+
+.submenu-nested li {
+    padding: 0;
+}
+
+.submenu-nested .submenu-link {
+    display: block;
+    padding: 10px 22px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: color 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+}
+
+.submenu-nested .submenu-link:hover {
+    color: #f5a623;
+    background: #f7f7f7;
+}
+
+.app-container {
+    min-height: 100vh;
+    background: #1a1a1a;
+    position: relative;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    height: 165px;
+    position: absolute;
+    bottom: 38px;
+    left: 160px;
+    right: 160px;
+    z-index: 10;
+}
+
+.subnav {
+    display: none;             
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(38px + 165px);
+    z-index: 15;
+    background: rgba(30, 30, 30, 0.82);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+}
+
+.subnav:not(.hidden) {
+    display: flex;
+}
+
+.subnav.hidden {
+    display: none;
+}
+
+#subnav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+}
+
+#subnav-list li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#subnav-list a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 28px;
+    color: rgba(255, 255, 255, 0.88);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+    border-bottom: 2px solid transparent;
+}
+
+#subnav-list li:first-child a {
+    border-bottom-color: #ffffff;
+    font-weight: 600;
+}
+
+#subnav-list a:hover {
+    color: #ffffff;
+    border-bottom-color: rgba(255,255,255,0.5);
+}
+
+.section-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    height: 165px;
+}
+
+.section-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.section-card:hover img {
+    transform: scale(1.06);
+}
+
+.section-card .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 16px;
+    transition: filter 0.3s ease;
+}
+
+#section-hospitality .overlay {
+    background: linear-gradient(to top, rgba(30, 90, 110, 0.85) 0%, rgba(30, 90, 110, 0.55) 55%, rgba(30, 90, 110, 0.25) 100%);
+}
+
+#section-retail .overlay {
+    background: linear-gradient(to top, rgba(160, 80, 20, 0.85) 0%, rgba(160, 80, 20, 0.55) 55%, rgba(160, 80, 20, 0.25) 100%);
+}
+
+.link-card:first-of-type .overlay {
+    background: linear-gradient(to top, rgba(30, 100, 80, 0.85) 0%, rgba(30, 100, 80, 0.55) 55%, rgba(30, 100, 80, 0.25) 100%);
+}
+
+.link-card:last-of-type .overlay {
+    background: linear-gradient(to top, rgba(80, 80, 100, 0.85) 0%, rgba(80, 80, 100, 0.55) 55%, rgba(80, 80, 100, 0.25) 100%);
+}
+
+.section-card .overlay h1 {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.section-card .overlay::before {
+    content: '+';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.footer {
+    background: rgba(10, 10, 10, 0.88);
+    padding: 10px 40px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: rgba(200, 200, 200, 0.65);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
